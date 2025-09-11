@@ -311,6 +311,7 @@ export default class GameScene extends Phaser.Scene {
         this.soundButton.on('pointerdown', this.SoundButtonPressed, this);
         this.soundButton.on('pointerup', this.SoundButtonReleased, this);
         this.DefaultSoundButton();
+        this.soundButton.setVisible(false);
     }
 
     BackButtonPressed() {

@@ -43,7 +43,7 @@ export default class TitleScene extends Phaser.Scene {
         this.game.events.on("resize", this.resize, this);
 
         this.menuBg = this.add.image(0, 0, "splash_bg").setOrigin(0);
-
+        this.menuBg.setVisible(false);
         // this.titleKnife = Utils.SpriteSettingsControl(this, Math.round(Constant.game.config.width / 2.06), -Math.round(Constant.game.config.height / 6.3), "title_knife", 0.5, 0.5, Constant.scaleFactor, Constant.scaleFactor);
         this.titleKnife = this.add.image(0, 0, "title_knife").setOrigin(0.5, 1);
         this.titleKnife.setAlpha(0);

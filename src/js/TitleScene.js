@@ -84,7 +84,7 @@ export default class TitleScene extends Phaser.Scene {
         this.playButton.setInteractive({ useHandCursor: true });
         this.playButton.on('pointerdown', this.PlayButtonPressed, this);
         this.playButton.on('pointerup', this.PlayButtonReleased, this);
-
+        this.playButton.setVisible(false);
         let timeRemainTextStyle = { fontFamily: 'Poppins_Bold', fontSize: '45px', fill: '#fff', fontStyle: 'bold', align: 'center', wordWrap: { width: Math.round(Constant.game.config.width - 100) } };
         // this.timeRemainText = this.add.text(0, 0, "Time Remain : ", timeRemainTextStyle).setOrigin(0.5);
 

@@ -297,7 +297,6 @@ export default class GameScene extends Phaser.Scene {
     };
 
     CreateTopItem() {
-        // this.gameplayBg = Utils.SpriteSettingsControl(this, Math.round(Constant.game.config.width / 2), Math.round(Constant.game.config.height / 2), "gameplay_bg", 0.5, 0.5, Constant.scaleFactor, Constant.scaleFactor);
         this.gameplayBg = this.add.image(0, 0, "gameplay_bg").setOrigin(0);
         let scoreTextStyle = { fontFamily: 'Poppins_Bold', fontSize: '90px', fill: '#fff', fontStyle: 'bold', align: 'center' };
         this.scoreText = this.add.text(0, 0, Constant.score, scoreTextStyle);
@@ -305,21 +304,12 @@ export default class GameScene extends Phaser.Scene {
         this.backButton.setInteractive({ useHandCursor: true });
         this.backButton.on('pointerdown', this.BackButtonPressed, this);
         this.backButton.on('pointerup', this.BackButtonReleased, this);
+        this.backButton.setVisible(false);
+
         this.soundButton = this.add.image(0, 0, "sound_on").setOrigin(0.5);
         this.soundButton.setInteractive({ useHandCursor: true });
         this.soundButton.on('pointerdown', this.SoundButtonPressed, this);
         this.soundButton.on('pointerup', this.SoundButtonReleased, this);
-        // if (this.sys.game.device.os.iOS) {
-        //     // this.scoreText = this.add.text(Math.round(Constant.game.config.width / 2), Math.round(Constant.game.config.height / 15), this.score, scoreTextStyle).setOrigin(0.5, 0.5).setScale(Constant.scaleFactor, Constant.scaleFactor);
-        //     this.scoreText = this.add.text(0, 0, '0', scoreTextStyle);
-        //     this.backButton = Utils.SpriteSettingsControl(this, Math.round(Constant.game.config.width / 12), Math.round(Constant.game.config.height / 14.5), "back_button", 0.5, 0.5, Constant.scaleFactor, Constant.scaleFactor, "true", this.BackButtonPressed, this.BackButtonReleased);
-        //     this.soundButton = Utils.SpriteSettingsControl(this, Math.round(Constant.game.config.width / 1.09), Math.round(Constant.game.config.height / 14.5), "sound_on", 0.5, 0.5, Constant.scaleFactor, Constant.scaleFactor, "true", this.SoundButtonPressed, this.SoundButtonReleased);
-        // } else {
-        //     this.scoreText = this.add.text(Math.round(Constant.game.config.width / 2), Math.round(Constant.game.config.height / 22), this.score, scoreTextStyle).setOrigin(0.5, 0.5).setScale(Constant.scaleFactor, Constant.scaleFactor);
-
-        //     this.backButton = Utils.SpriteSettingsControl(this, Math.round(Constant.game.config.width / 12), Math.round(Constant.game.config.height / 20), "back_button", 0.5, 0.5, Constant.scaleFactor, Constant.scaleFactor, "true", this.BackButtonPressed, this.BackButtonReleased);
-        //     this.soundButton = Utils.SpriteSettingsControl(this, Math.round(Constant.game.config.width / 1.09), Math.round(Constant.game.config.height / 20), "sound_on", 0.5, 0.5, Constant.scaleFactor, Constant.scaleFactor, "true", this.SoundButtonPressed, this.SoundButtonReleased);
-        // }
         this.DefaultSoundButton();
     }
 
@@ -331,7 +321,6 @@ export default class GameScene extends Phaser.Scene {
     BackButtonReleased() {
         setTimeout(() => {
             this.quitPopup.ShowQuitPopup();
-            // SoundManager.StopBgMusic();
         }, 100);
     }
 
